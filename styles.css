@@ -50,21 +50,27 @@ p {
     font-size: 1.2em;
 }
 
-.difficulty-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #1E90FF;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.game-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-.difficulty-button:hover {
+.game-card {
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    padding: 30px 60px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1.8em;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
     background-color: #3A9EFF;
     transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .game-button {
