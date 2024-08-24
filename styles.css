@@ -1,38 +1,87 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f4f4f4, #ddd);
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #FFFFFF;
+    color: #333333;
     margin: 0;
-    transition: background 0.5s ease, color 0.5s ease;
+    padding: 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #1E90FF;
+    padding: 20px;
+}
+
+nav h1 {
+    color: #FFFFFF;
+    font-size: 2em;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1em;
 }
 
 .container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-    transition: background-color 0.5s ease;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: #222;
+h2 {
+    color: #1E90FF;
+    font-size: 1.5em;
 }
 
-/* Center the game history table */
-#gameHistory {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+p {
+    font-size: 1.2em;
+}
+
+.difficulty-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.difficulty-button:hover {
+    background-color: #3A9EFF;
+    transform: scale(1.05);
+}
+
+.game-button {
+    padding: 20px 50px;
+    font-size: 1.8em;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.game-button:hover {
+    background-color: #3A9EFF;
+    transform: scale(1.05);
 }
 
 #historyTable {
@@ -44,6 +93,7 @@ h1 {
     overflow: hidden;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
 }
 
 #historyTable th, #historyTable td {
@@ -70,19 +120,19 @@ h1 {
     background-color: #e0e0e0;
 }
 
-button {
-    padding: 15px 25px;
-    font-size: 1.2em;
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.game-input {
+    width: 200px; 
+    height: 50px; 
+    font-size: 1.5em; 
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #1E90FF;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
-    background-color: #666;
-    transform: scale(1.05);
+.game-input:focus {
+    border-color: #3A9EFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

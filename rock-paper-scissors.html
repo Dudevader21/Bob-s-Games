@@ -6,25 +6,32 @@
     <title>Rock, Paper, Scissors</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="light-mode">
+<body>
     <nav>
-        <a href="index.html">Home</a>
+        <h1>Bobs Games</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="guess-the-number.html">Guess the Number</a></li>
+            <li><a href="rock-paper-scissors.html">Rock, Paper, Scissors</a></li>
+            <li><a href="blackjack.html">Blackjack</a></li>
+        </ul>
     </nav>
     <div class="container">
-        <h1>Rock, Paper, Scissors</h1>
-        <p>Choose your move:</p>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-
-        <p id="resultMessage"></p>
-        <p id="playerScore">Your Score: 0</p>
-        <p id="computerScore">Computer Score: 0</p>
-
-        <button id="resetRPS" style="display: none;">Play Again</button>
-        <button id="themeToggle">Toggle Theme</button>
+        <h2>Rock, Paper, Scissors</h2>
+        <div id="gameArea">
+            <p>Choose your move:</p>
+            <button id="rockButton" class="game-button">Rock</button>
+            <button id="paperButton" class="game-button">Paper</button>
+            <button id="scissorsButton" class="game-button">Scissors</button>
+            <p id="resultMessage"></p>
+            <div id="scoreBoard">
+                <p id="playerScore">Player: 0</p>
+                <p id="computerScore">Computer: 0</p>
+                <p id="tieScore">Ties: 0</p>
+            </div>
+            <button id="resetButton" class="game-button" style="display: none;">Play Again</button>
+        </div>
     </div>
-
     <script src="rock-paper-scissors.js"></script>
 </body>
 </html>

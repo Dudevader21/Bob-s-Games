@@ -8,10 +8,16 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
+        <h1>Bobs Games</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="guess-the-number.html">Guess the Number</a></li>
+            <li><a href="rock-paper-scissors.html">Rock, Paper, Scissors</a></li>
+            <li><a href="blackjack.html">Blackjack</a></li>
+        </ul>
     </nav>
     <div class="container">
-        <h1>Blackjack</h1>
+        <h2>Blackjack</h2>
         <div id="gameArea">
             <div id="dealerArea">
                 <h2>Dealer's Hand</h2>
@@ -23,13 +29,11 @@
                 <div id="playerCards" class="card-container"></div>
                 <p id="playerScore">Score: 0</p>
             </div>
-            <button id="hitButton">Hit</button>
-            <button id="standButton">Stand</button>
-            <button id="resetButton" style="display: none;">Play Again</button>
+            <button id="hitButton" class="game-button">Hit</button>
+            <button id="standButton" class="game-button">Stand</button>
+            <button id="resetButton" class="game-button" style="display: none;">Play Again</button>
             <p id="resultMessage"></p>
         </div>
-
-        <!-- Game history section -->
         <div id="gameHistory">
             <h2>Game History</h2>
             <table id="historyTable">
@@ -41,9 +45,7 @@
                         <th>Dealer's Score</th>
                     </tr>
                 </thead>
-                <tbody id="historyBody">
-                    <!-- History will be appended here -->
-                </tbody>
+                <tbody id="historyBody"></tbody>
             </table>
         </div>
     </div>

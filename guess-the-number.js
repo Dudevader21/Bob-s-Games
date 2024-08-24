@@ -1,6 +1,6 @@
 let randomNumber;
 let attempts;
-let range;
+let maxAttempts;
 let bestScore = localStorage.getItem('bestScore') || Infinity;
 
 document.getElementById('bestScore').textContent = bestScore === Infinity ? "N/A" : bestScore;
@@ -8,18 +8,18 @@ document.getElementById('bestScore').textContent = bestScore === Infinity ? "N/A
 function setDifficulty(level) {
     switch(level) {
         case 'easy':
-            range = 50;
+            maxAttempts = 10;
             break;
         case 'moderate':
-            range = 100;
+            maxAttempts = 7;
             break;
         case 'hard':
-            range = 200;
+            maxAttempts = 5;
             break;
     }
     attempts = 0;
-    randomNumber = Math.floor(Math.random() * range) + 1;
-    document.getElementById('difficultyMessage').textContent = `Difficulty: ${level.charAt(0).toUpperCase() + level.slice(1)} (1-${range})`;
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    document.getElementById('difficultyMessage').textContent = `Difficulty: ${level.charAt(0).toUpperCase() + level.slice(1)}`;
     document.getElementById('guessInput').disabled = false;
     document.getElementById('guessButton').disabled = false;
 }
@@ -36,10 +36,13 @@ function makeGuess() {
             document.getElementById('bestScore').textContent = bestScore;
         }
         endGame();
+    } else if (attempts >= maxAttempts) {
+        document.getElementById('resultMessage').textContent = `Sorry! You've used all your attempts. The number was ${randomNumber}.`;
+        endGame();
     } else if (guess < randomNumber) {
-        document.getElementById('resultMessage').textContent = `Too low! Attempts so far: ${attempts}`;
+        document.getElementById('resultMessage').textContent = `Too low! Attempts left: ${maxAttempts - attempts}`;
     } else if (guess > randomNumber) {
-        document.getElementById('resultMessage').textContent = `Too high! Attempts so far: ${attempts}`;
+        document.getElementById('resultMessage').textContent = `Too high! Attempts left: ${maxAttempts - attempts}`;
     }
 }
 

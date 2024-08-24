@@ -3,44 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Number Game</title>
+    <title>Guess the Number</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="light-mode">
+<body>
     <nav>
-        <a href="index.html">Home</a>
+        <h1>Bobs Games</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="guess-the-number.html">Guess the Number</a></li>
+            <li><a href="rock-paper-scissors.html">Rock, Paper, Scissors</a></li>
+            <li><a href="blackjack.html">Blackjack</a></li>
+        </ul>
     </nav>
     <div class="container">
-        <h1>Guess the Number Game</h1>
-        <p>Select Difficulty:</p>
-        <select id="difficulty">
-            <option value="easy">Easy (1-50)</option>
-            <option value="medium" selected>Medium (1-100)</option>
-            <option value="hard">Hard (1-200)</option>
-        </select>
-
-        <p>I’m thinking of a number between <span id="range">1 and 100</span>.</p>
-        <p>Can you guess it?</p>
-
-        <input type="number" id="guessInput" placeholder="Enter your guess">
-        <button id="guessBtn">Guess</button>
-
-        <p id="message"></p>
-        <p id="attempts"></p>
-
-        <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
+        <h2>Guess the Number</h2>
+        <p>Select difficulty (and guess range):</p>
+        <div id="gameArea">
+            <button class="difficulty-button" onclick="setDifficulty('easy')">Easy (1-50)</button>
+            <button class="difficulty-button" onclick="setDifficulty('moderate')">Moderate (1-100)</button>
+            <button class="difficulty-button" onclick="setDifficulty('hard')">Hard (1-200)</button>
+            <p id="difficultyMessage"></p>
+            <input type="number" id="guessInput" class="game-input" placeholder="Enter your guess" disabled>
+            <button id="guessButton" class="game-button" onclick="makeGuess()" disabled>Guess</button>
+            <button id="resetButton" class="game-button" onclick="resetGame()" style="display: none;">Play Again</button>
+            <p id="resultMessage"></p>
+            <p id="bestScoreMessage">Best Score: <span id="bestScore">0</span></p>
         </div>
-
-        <p>Best Score: <span id="bestScore"></span> attempts</p>
-
-        <button id="resetBtn" style="display: none;">Play Again</button>
-        <button id="themeToggle">Toggle Theme</button>
     </div>
-
-    <audio id="guessSound" src="guess-sound.mp3" preload="auto"></audio>
-    <audio id="winSound" src="win-sound.mp3" preload="auto"></audio>
-
     <script src="script.js"></script>
 </body>
 </html>

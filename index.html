@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Hub</title>
+    <title>Bobs Games</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Bob's Games</h1>
-        <p>Select a game to play:</p>
+    <nav>
+        <h1>Bobs Games</h1>
         <ul>
+            <li><a href="index.html">Home</a></li>
             <li><a href="guess-the-number.html">Guess the Number</a></li>
-            <!-- Add more games here as you create them -->
             <li><a href="rock-paper-scissors.html">Rock, Paper, Scissors</a></li>
-            <li><a href="blackjack.html">Black Jack</a></li>
+            <li><a href="blackjack.html">Blackjack</a></li>
         </ul>
+    </nav>
+    <div class="container">
+        <h2>Welcome to Bobs Games</h2>
+        <p>Choose a game to play:</p>
+        <div class="game-list">
+            <a href="guess-the-number.html" class="game-card">Guess the Number</a>
+            <a href="rock-paper-scissors.html" class="game-card">Rock, Paper, Scissors</a>
+            <a href="blackjack.html" class="game-card">Blackjack</a>
+        </div>
     </div>
 </body>
 </html>

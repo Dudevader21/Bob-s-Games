@@ -1,65 +1,52 @@
 let playerScore = 0;
 let computerScore = 0;
+let tieScore = 0;
 
-const resultMessage = document.getElementById('resultMessage');
-const playerScoreDisplay = document.getElementById('playerScore');
-const computerScoreDisplay = document.getElementById('computerScore');
-const resetButton = document.getElementById('resetRPS');
-const themeToggle = document.getElementById('themeToggle');
+document.getElementById('rockButton').addEventListener('click', () => playGame('rock'));
+document.getElementById('paperButton').addEventListener('click', () => playGame('paper'));
+document.getElementById('scissorsButton').addEventListener('click', () => playGame('scissors'));
 
-const moves = ['Rock', 'Paper', 'Scissors'];
+function playGame(playerChoice) {
+    const choices = ['rock', 'paper', 'scissors'];
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    const resultMessage = document.getElementById('resultMessage');
+    let result = '';
 
-function getComputerMove() {
-    return moves[Math.floor(Math.random() * moves.length)];
-}
-
-function determineWinner(playerMove, computerMove) {
-    if (playerMove === computerMove) {
-        return 'draw';
+    if (playerChoice === computerChoice) {
+        result = "It's a tie!";
+        tieScore++;
     } else if (
-        (playerMove === 'Rock' && computerMove === 'Scissors') ||
-        (playerMove === 'Paper' && computerMove === 'Rock') ||
-        (playerMove === 'Scissors' && computerMove === 'Paper')
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
     ) {
-        return 'player';
-    } else {
-        return 'computer';
-    }
-}
-
-function playRound(playerMove) {
-    const computerMove = getComputerMove();
-    const winner = determineWinner(playerMove, computerMove);
-
-    if (winner === 'player') {
-        resultMessage.textContent = `You win! ${playerMove} beats ${computerMove}.`;
+        result = 'You win!';
         playerScore++;
-    } else if (winner === 'computer') {
-        resultMessage.textContent = `You lose! ${computerMove} beats ${playerMove}.`;
-        computerScore++;
     } else {
-        resultMessage.textContent = `It's a draw! You both chose ${playerMove}.`;
+        result = 'You lose!';
+        computerScore++;
     }
 
-    playerScoreDisplay.textContent = `Your Score: ${playerScore}`;
-    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
-    resetButton.style.display = 'inline-block';
+    resultMessage.textContent = `You chose ${playerChoice}. Computer chose ${computerChoice}. ${result}`;
+    updateScore();
+    document.getElementById('resetButton').style.display = 'inline-block';
 }
 
-document.getElementById('rock').addEventListener('click', () => playRound('Rock'));
-document.getElementById('paper').addEventListener('click', () => playRound('Paper'));
-document.getElementById('scissors').addEventListener('click', () => playRound('Scissors'));
+function updateScore() {
+    document.getElementById('playerScore').textContent = `Player: ${playerScore}`;
+    document.getElementById('computerScore').textContent = `Computer: ${computerScore}`;
+    document.getElementById('tieScore').textContent = `Ties: ${tieScore}`;
+}
 
-resetButton.addEventListener('click', () => {
+document.getElementById('resetButton').addEventListener('click', resetGame);
+
+function resetGame() {
     playerScore = 0;
     computerScore = 0;
-    resultMessage.textContent = '';
-    playerScoreDisplay.textContent = `Your Score: 0`;
-    computerScoreDisplay.textContent = `Computer Score: 0`;
-    resetButton.style.display = 'none';
-});
-
-themeToggle.addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    document.body.classList.toggle('light-mode');
-});
+    tieScore = 0;
+    document.getElementById('playerScore').textContent = `Player: 0`;
+    document.getElementById('computerScore').textContent = `Computer: 0`;
+    document.getElementById('tieScore').textContent = `Ties: 0`;
+    document.getElementById('resultMessage').textContent = '';
+    document.getElementById('resetButton').style.display = 'none';
+}
