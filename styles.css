@@ -7,13 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    cursor: url('custom-cursor.png'), auto;
     transition: background 0.5s ease, color 0.5s ease;
-}
-
-body.dark-mode {
-    background: linear-gradient(135deg, #222, #333);
-    color: #f4f4f4;
 }
 
 .container {
@@ -21,14 +15,10 @@ body.dark-mode {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    max-width: 700px;
+    max-width: 800px;
     width: 100%;
     text-align: center;
     transition: background-color 0.5s ease;
-}
-
-body.dark-mode .container {
-    background-color: #444;
 }
 
 h1 {
@@ -38,89 +28,61 @@ h1 {
     color: #222;
 }
 
-nav a {
-    font-size: 1.2em;
-    margin: 0 10px;
-    color: #444;
-    text-decoration: none;
+/* Center the game history table */
+#gameHistory {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#historyTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#historyTable th, #historyTable td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+#historyTable th {
+    background-color: #444;
+    color: white;
     font-weight: bold;
 }
 
-nav a:hover {
-    color: #666;
+#historyTable tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+#historyTable tr:nth-child(odd) {
+    background-color: #ffffff;
 }
 
-ul li {
-    margin: 10px 0;
-}
-
-ul li a {
-    font-size: 1.5em;
-    color: #444;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-ul li a:hover {
-    color: #666;
-}
-
-input {
-    padding: 20px;
-    font-size: 1.5em;
-    margin: 15px 0;
-    width: 85%;
-    border: 2px solid #ccc;
-    border-radius: 5px;
+#historyTable tr:hover {
+    background-color: #e0e0e0;
 }
 
 button {
-    padding: 20px 30px;
-    font-size: 1.5em;
+    padding: 15px 25px;
+    font-size: 1.2em;
     background-color: #444;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     margin-top: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: #666;
     transform: scale(1.05);
-}
-
-#message {
-    font-size: 1.8em;
-    margin-top: 30px;
-    color: #555;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-.progress {
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    height: 20px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.progress-bar {
-    background-color: #4caf50;
-    height: 100%;
-    width: 0%;
-    border-radius: 5px;
 }
